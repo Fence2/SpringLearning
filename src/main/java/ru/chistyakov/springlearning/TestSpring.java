@@ -7,10 +7,12 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
+        // Теперь мы можем менять значения в xml файле, не затрагивая Java классы
+        Music music = context.getBean("musicBean", Music.class);
 
-        TestBean testBean = context.getBean("testBean", TestBean.class);
+        MusicPlayer musicPlayer = new MusicPlayer(music);
 
-        System.out.println(testBean.getName());
+        musicPlayer.playMusic();
 
         context.close(); 
     }
