@@ -10,16 +10,18 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="ru.chistyakov.springlearning.ClassicalMusic">
+          class="ru.chistyakov.springlearning.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
     </bean>
 
-    <bean id="musicPlayer"
-          class="ru.chistyakov.springlearning.MusicPlayer"
-          scope="prototype">
-        <property name="music" ref="musicBean"/>
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="ru.chistyakov.springlearning.MusicPlayer"-->
+    <!--          scope="prototype">-->
+    <!--        <property name="music" ref="musicBean"/>-->
 
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <!--        <property name="name" value="${musicPlayer}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
 
 </beans>
